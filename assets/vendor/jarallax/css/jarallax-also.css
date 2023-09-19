@@ -1,0 +1,36 @@
+.jarallax-keep-img {
+    position: relative;
+    z-index: 0;
+}
+.jarallax-keep-img > .jarallax-img {
+    position: relative;
+    display: block;
+    max-width: 100%;
+    height: auto;
+    z-index: -100;
+}
+span[data-jarallax-element] {
+    display: inline-block;
+}
+
+.jarallax {
+    min-height: 850px;
+}
+.jarallax-keep-img.demo-float-left {
+    margin-right: 15px;
+    margin-left: -60px;
+}
+.jarallax-keep-img.demo-float-right {
+    margin-left: 15px;
+    margin-right: -60px;
+}
+
+@media screen and (max-width: 600px) {
+    .jarallax-keep-img.demo-float-left,
+    .jarallax-keep-img.demo-float-right {
+        margin-right: 0;
+        margin-left: 0;
+        float: none;
+    }
+}
+
