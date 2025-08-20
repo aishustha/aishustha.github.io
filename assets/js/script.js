@@ -188,12 +188,83 @@
     });
 
     //nav-active
-    $('.navigation a').click(function() {
-        $('.navigation a').removeClass('active');
+// nav-active with smooth scroll, scroll spy, footer handling, Home button fix
+const sections = $('section[id]');
+const navLinks = $('.navigation a');
+let isScrolling = false; // flag to prevent scroll spy interference
+
+navLinks.click(function(e) {
+    const href = $(this).attr('href');
+
+    // --- Home button fix ---
+    if (href === '#' || href === '#home') {
+        // Jump instantly to top
+        window.scrollTo({ top: 0, behavior: 'auto' });
+
+        // Update URL hash
+        history.replaceState(null, null, '#');
+
+        // Update active class
+        navLinks.removeClass('active');
         $(this).addClass('active');
+        return; // skip the rest
+    }
+
+    // Skip smooth scroll for external links or PDF
+    if (href.startsWith('http') || href.endsWith('.pdf') || $(this).attr('target') === '_blank') {
+        return; // normal browser behavior
+    }
+
+    e.preventDefault(); // prevent default for internal sections
+    const targetId = href;
+    isScrolling = true;
+
+    // Animate smooth scroll for other sections
+    $('html, body').animate(
+        { scrollTop: $(targetId).offset().top - 80 }, // adjust offset for header
+        600,
+        function() {
+            isScrolling = false;
+            history.replaceState(null, null, targetId); // update URL after scroll
+        }
+    );
+
+    // Update active class immediately
+    navLinks.removeClass('active');
+    $(this).addClass('active');
+});
+
+// Scroll spy on scroll
+$(window).on('scroll', function() {
+    if (isScrolling) return; // skip while animating
+
+    let scrollPos = $(window).scrollTop() + 100; // adjust offset
+    let docHeight = $(document).height();
+    let winHeight = $(window).height();
+
+    sections.each(function() {
+        let top = $(this).offset().top;
+        let bottom = top + $(this).outerHeight();
+
+        if (scrollPos >= top && scrollPos < bottom) {
+            let id = $(this).attr('id');
+
+            // Update URL
+            history.replaceState(null, null, `#${id}`);
+
+            // Update active class
+            navLinks.removeClass('active');
+            $(`.navigation a[href="#${id}"]`).addClass('active');
+        }
     });
 
-
+    // Handle short footer/contact section
+    if ($(window).scrollTop() + winHeight >= docHeight - 10) {
+        navLinks.removeClass('active');
+        $('.navigation a[href="#contact"]').addClass('active');
+        history.replaceState(null, null, '#contact');
+    }
+});
 
 
 

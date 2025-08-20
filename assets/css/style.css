@@ -1557,6 +1557,7 @@ img {
 }
 .banner-overlay-text p {
   font-size: 16px;
+  text-align: justify;
   text-transform: uppercase;
   font-weight: bold;
   color: #ffbd39;
