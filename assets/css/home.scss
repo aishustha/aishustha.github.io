@@ -1101,6 +1101,7 @@ img {
     color: $body-color;
     font-size: 16px;
     margin-top: 30px;
+    text-align: justify;
 }
 
 //skillbar
@@ -1111,23 +1112,33 @@ img {
     }
 }
 
+.about-skillbar-btn {
+    p {
+        color: $theme-color-two;
+        font-weight: 600;
+    }
+    .btn {
+        margin-bottom: 1rem;
+        margin-right: 0.5rem;
+        &.btn-outline-primary {
+            border-radius: 0px;
+        }
+    }
+}
 
 .btn-outline-primary {
     color: $theme-color-two;
     border-color: $theme-color-two;
     font-weight: 600;
+    transition: all 0.3s ease;
     &:hover {
         color: $text-color;
         background-color: $theme-color-two;
         border-color: $theme-color-two;
+        transition: all 0.3s ease;
     }
-}
 
-.about-skillbar-btn .btn {
-    margin-bottom: 5px;
-    &.btn-outline-primary {
-        border-radius: 0px;
-    }
+    
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active, .show>.btn-outline-primary.dropdown-toggle {
@@ -1574,6 +1585,12 @@ img {
             color: $text-color;
         }
     }
+
+    .footer-flex {
+        display: grid;
+        align-items: center;
+    }
+
 }
 
 //contact
@@ -1597,6 +1614,12 @@ img {
             & a {
                 color: $text-color;
                 font-size: 16px;
+            }
+        }
+        &.footer-logo-img {
+            text-align: center;
+            img {
+                width: 200px;
             }
         }
     }
@@ -1672,6 +1695,9 @@ img {
         margin-top: 15px;
     }
     //padding
+    .pt-90 {
+        padding-top: 90px !important;
+    }
     .mobile-xl-pb-90 {
         margin-bottom: 90px;
     }
@@ -1953,3 +1979,5 @@ img {
         }
     }
 }
+
+

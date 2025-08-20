@@ -1691,6 +1691,7 @@ img {
   color: #000;
   font-size: 16px;
   margin-top: 30px;
+  text-align: justify;
 }
 
 .about-skillbar p {
@@ -1698,22 +1699,29 @@ img {
   font-size: 16px;
 }
 
+.about-skillbar-btn p {
+  color: #ffbd39;
+  font-weight: 600;
+}
+.about-skillbar-btn .btn {
+  margin-bottom: 1rem;
+  margin-right: 0.5rem;
+}
+.about-skillbar-btn .btn.btn-outline-primary {
+  border-radius: 0px;
+}
+
 .btn-outline-primary {
   color: #ffbd39;
   border-color: #ffbd39;
   font-weight: 600;
+  transition: all 0.3s ease;
 }
 .btn-outline-primary:hover {
   color: #fff;
   background-color: #ffbd39;
   border-color: #ffbd39;
-}
-
-.about-skillbar-btn .btn {
-  margin-bottom: 5px;
-}
-.about-skillbar-btn .btn.btn-outline-primary {
-  border-radius: 0px;
+  transition: all 0.3s ease;
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active, .show > .btn-outline-primary.dropdown-toggle {
@@ -2132,6 +2140,10 @@ img {
 .main-footer .about-title h1 {
   color: #fff;
 }
+.main-footer .footer-flex {
+  display: grid;
+  align-items: center;
+}
 
 .contact-section {
   background: rgba(0, 0, 0, 0.1);
@@ -2155,6 +2167,12 @@ img {
 .contact-section .contact-info .cinfo p a {
   color: #fff;
   font-size: 16px;
+}
+.contact-section .contact-info .cinfo.footer-logo-img {
+  text-align: center;
+}
+.contact-section .contact-info .cinfo.footer-logo-img img {
+  width: 200px;
 }
 .contact-section .contact-social {
   display: flex;
@@ -2227,6 +2245,10 @@ img {
 
   .mobile-xl-mt-15 {
     margin-top: 15px;
+  }
+
+  .pt-90 {
+    padding-top: 90px !important;
   }
 
   .mobile-xl-pb-90 {
